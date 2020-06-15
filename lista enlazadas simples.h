@@ -114,7 +114,7 @@ void LinkedList :: remove(int new_element){
 	}
 	
 	else{
-		while(aux2){ //Mientras exista algo en la lista, voy avanzado el puntero para que apunte al siguiente
+		while(aux2){
 			if(aux2 -> getElement() == new_element){
 				Node* temp = aux2;
 				aux1 -> setNext(aux2 -> getNext()) ;
@@ -126,9 +126,7 @@ void LinkedList :: remove(int new_element){
 			aux1 -> getNext();
 			aux2 -> getNext();
 		}
-	}
-	
-	
+	}	
 }
 
 void LinkedList :: print(){
@@ -139,12 +137,12 @@ void LinkedList :: print(){
 	else{
 		while(aux){ //Mientras exista algo en la lista, voy avanzado el puntero para que apunte al siguiente
 			aux -> print();
-			if(!aux -> getNext()){
-				cout<< "NULL";
-				aux = aux -> getNext();		
+			if(!aux -> getNext())cout<< "NULL";{
+				aux = aux -> getNext();			
 			}
 		}
 	}
+
 }
 
 int main(){
@@ -158,22 +156,22 @@ int main(){
 	cout<<"(1) usar la funcion insertar dato en la lista enlazada"<<endl;
 	cout<<"(2) usar la funcion remover dato de la lista enlazada"<<endl;
 	cout<<"(3) mostrar la lista enlazada"<<endl;
-	cout<<"(4) salir ";
+	cout<<"(4) salir "<<endl;
 	cout<<"intruduzca opcion: "; 
 	cin>>option;
 	switch(option){
 		case 1 :
-			cout<<"ingrese un dato a la lista enlazada";
+			cout<<"ingrese un dato a la lista enlazada"<<endl;
 			cin>>item;	
 			List1.insert(item);
 			break;
 		case 2 :
-			cout<<"retire un dato de la lista enlazada";
+			cout<<"retire un dato de la lista enlazada"<<endl;
 			cin>>item;
 			List1.remove(item);
 			break;
 		case 3 :
-			cout<<"mostrando la lista enlazada";
+			cout<<"mostrando la lista enlazada"<<endl;
 			List1.print();
 			break;
 		case 4 :		
