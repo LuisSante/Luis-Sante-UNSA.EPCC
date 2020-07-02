@@ -18,4 +18,5 @@ int main(){
 	Arbol *arboles3 = Arbol :: Instancia();
 	Arbol *arboles4 = Arbol :: Instancia();
 	return 0;
+	//ojoooooo no imprime nada
 }
