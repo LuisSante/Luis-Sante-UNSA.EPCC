@@ -20,7 +20,7 @@ class Node{
 		
 		Node(){
 			element = 0;
-			next = NULL;	
+			next = nullptr;	
 		}
 		
 		Node(int element , Node<T>* next){

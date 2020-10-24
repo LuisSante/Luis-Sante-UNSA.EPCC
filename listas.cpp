@@ -8,11 +8,7 @@ int main(){
 	int item;
 	
 	List<int> list1;
-	/*Iterator<int> it;
-	 iterator srive para 
-	 for(it=list.begin(); it!=list.end(); it++){
-	 }
-	*/
+	
 	do{
 	cout<<"                      MENU                           "<<endl;
 	cout<<"(1) usar la funcion insertar al principio de la lista enlazada"<<endl;

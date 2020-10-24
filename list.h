@@ -13,14 +13,8 @@ class List{
 		Node<T>* head;
 		Node<T>* cola;
 	public:	
-		void insert_start(T new_element);
-		void insert_end(T new_element);
 		void insert(T new_element);
-		void remove_start(T new_element);
-		void remove_end(T new_element);
 		void remove(T new_element);
-		Node<T>* begin();
-		Node<T>* end();
 		void print();
 		List(T size, Node<T>* head, Node<T>* cola){
 			this -> size=size;
@@ -30,8 +24,8 @@ class List{
 		
 		List(){
 			size=0;
-			head=NULL;
-			cola = NULL;
+			head=nullptr;
+			cola = nullptr;
 		}
 		
 		List(List &o){
@@ -50,65 +44,7 @@ class List{
 		}
 };
 
-template<class T>
-void List<T> :: insert_start(T new_element){
-	Node<T> *new_node = new Node<T>(new_element , NULL);
-	Node<T> *temp = head;
-	
-	if(!head){ //si la lista esta vacia
-		head = new_node;
-	}
-	
-	else{
-		new_node -> setNext(head);
-		head = new_node;
-		
-		while(temp){ //Mientras exista algo en la lista, voy avanzado el puntero para que apunte al siguiente
-			temp = temp->getNext();
-		}
-	}
-	size++;
-}
 
-template<class T>
-void List<T> :: insert_end(T new_element){
-	Node<T>* new_node = new Node<T>(new_element, NULL);
-	Node<T>* temp = head;
-	
-	if(!head){ // si la lista esta vacia
-		head = new_node;
-	}
-	
-	else{
-		while(temp -> getNext() != NULL){
-			temp = temp -> getNext();
-		}
-		temp -> setNext(new_node);
-	}
-	size++;
-}
-
-template<class T>
-void List<T> :: remove_start(T new_element){
-	Node<T>* temp = head;
-	while(head->getNext() != NULL){ 
-		temp = head->getNext();
-		delete head;
-		head = temp; 
-	}
-	size--;
-}
-
-template<class T>
-void List<T> :: remove_end(T new_element){
-	Node<T>* temp = head;
-	while(temp -> getNext() != NULL){
-		if(head -> getNext() == NULL){
-			delete head;
-		}
-	}
-	size--;
-}
 
 template<class T>
 void List<T> :: remove(T new_element){
@@ -140,18 +76,6 @@ void List<T> :: remove(T new_element){
 }
 
 template<class T>
-Node<T>* List<T> :: begin(){
-
-	return head.getNext();
-}
-
-template<class T>
-Node<T>* List<T> :: end(){
-	
-	return &cola;
-}
-
-template<class T>
 void List<T> :: print(){
 	Node<T> *aux = head;
 	if(!head){ 
@@ -167,47 +91,4 @@ void List<T> :: print(){
 	}
 }
 
-template<class T>
-class Iterator{
-	private:
-		Node<T>* nodo;
-		
-	public:
-		void operator = (Node<T>* Nodo);
-		void operator ++();  
-		void operator --();	
-		T operator *();
-		bool operator !=(Node<T>* Nodo);
-		bool operator ==(Node<T>* Nodo);
-};
-
-template<class T>
-void Iterator<T> :: operator =(Node<T>* Nodo){
-	nodo = Nodo;
-}
-
-template<class T>
-void Iterator<T> :: operator ++(){
-	nodo = nodo -> getNext();  
-} 
-
-template<class T>
-void Iterator<T> :: operator --(){
-	nodo = nodo -> getNext();
-}
-
-template<class T>
-T Iterator<T> :: operator *(){
-	return nodo -> getElement();
-}
-
-template<class T>
-bool Iterator<T> :: operator !=(Node<T>* Nodo){
-	return nodo == Nodo;
-}
-
-template<class T>
-bool Iterator<T> :: operator ==(Node<T>* Nodo){
-	return nodo != Nodo;
-} 
 #endif
